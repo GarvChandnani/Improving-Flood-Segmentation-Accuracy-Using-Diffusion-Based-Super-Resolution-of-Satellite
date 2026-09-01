@@ -1,0 +1,91 @@
+# ============================================================
+# FloodSense .gitignore
+# ============================================================
+
+# --- Model checkpoints (large binary files) ---
+# These are NOT committed to git; keep them locally and on Google Drive.
+# Use scripts/download_checkpoints.py to manage them.
+ml/checkpoints/**/*.pt
+ml/checkpoints/**/*.pth
+ml/checkpoints/**/*.ckpt
+ml/checkpoints/**/*.bin
+ml/checkpoints/**/*.safetensors
+ml/checkpoints/**/*.meta.json
+
+# IMPORTANT: .gitkeep files ARE tracked so empty directories are preserved
+!ml/checkpoints/**/.gitkeep
+
+# --- External BBDM repository (cloned by scripts/setup_bbdm.py) ---
+ml/models/bbdm_repo/
+
+# --- Data directories (too large for git) ---
+data/raw/
+data/processed/
+# Keep samples directory tracked
+!data/samples/
+
+# --- Generated outputs ---
+outputs/
+!outputs/.gitkeep
+
+# --- Numpy arrays (SynEO, latents) ---
+*.npy
+*.npz
+
+# --- Archive files ---
+*.zip
+*.tar.gz
+*.tar
+
+# --- Python ---
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+dist/
+build/
+.eggs/
+*.egg
+
+# --- Virtual environments ---
+.venv/
+venv/
+env/
+.env
+
+# --- Jupyter ---
+.ipynb_checkpoints/
+*.ipynb
+
+# --- IDE ---
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# --- Secrets / credentials ---
+.env
+*.key
+secrets.json
+credentials.json
+
+# --- Logs ---
+*.log
+runs/
+lightning_logs/
+wandb/
+
+# --- Temporary files ---
+tmp/
+temp/
+scratch/
+
+# --- Frontend Node Modules & Build ---
+frontend/node_modules/
+frontend/dist/
+node_modules/
+

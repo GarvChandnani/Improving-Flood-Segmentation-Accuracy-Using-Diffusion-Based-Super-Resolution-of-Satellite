@@ -1,0 +1,90 @@
+[
+  {
+    "sample_id": "Pakistan_9928",
+    "country": "Pakistan",
+    "chip_id": "9928",
+    "location_name": "Indus River Basin, Sindh, Pakistan",
+    "center_lat": 26.625,
+    "center_lon": 68.125,
+    "bounds": [
+      68.0,
+      26.5,
+      68.25,
+      26.75
+    ],
+    "crs": "EPSG:4326",
+    "dimensions": "256x256",
+    "channels": 2,
+    "s1_path": "C:\\projects\\Capstone project- Floodsense\\flood-project\\data\\processed\\S1\\Pakistan_9928_S1Hand.tif",
+    "label_path": "C:\\projects\\Capstone project- Floodsense\\flood-project\\data\\processed\\LabelHand\\Pakistan_9928_LabelHand.tif",
+    "syneo_path": "C:\\projects\\Capstone project- Floodsense\\flood-project\\data\\processed\\SynEO\\Pakistan_9928_SynEO.npy",
+    "has_ground_truth": true,
+    "has_syneo": true
+  },
+  {
+    "sample_id": "Bolivia_103757",
+    "country": "Bolivia",
+    "chip_id": "103757",
+    "location_name": "Beni River Floodplain, Bolivia",
+    "center_lat": -16.375,
+    "center_lon": -64.375,
+    "bounds": [
+      -64.5,
+      -16.5,
+      -64.25,
+      -16.25
+    ],
+    "crs": "EPSG:4326",
+    "dimensions": "256x256",
+    "channels": 2,
+    "s1_path": "C:\\projects\\Capstone project- Floodsense\\flood-project\\data\\processed\\S1\\Bolivia_103757_S1Hand.tif",
+    "label_path": "C:\\projects\\Capstone project- Floodsense\\flood-project\\data\\processed\\LabelHand\\Bolivia_103757_LabelHand.tif",
+    "syneo_path": "C:\\projects\\Capstone project- Floodsense\\flood-project\\data\\processed\\SynEO\\Bolivia_103757_SynEO.npy",
+    "has_ground_truth": true,
+    "has_syneo": true
+  },
+  {
+    "sample_id": "USA_10234",
+    "country": "USA",
+    "chip_id": "10234",
+    "location_name": "Mississippi River Inundation Zone, USA",
+    "center_lat": 32.425,
+    "center_lon": -90.375,
+    "bounds": [
+      -90.5,
+      32.3,
+      -90.25,
+      32.55
+    ],
+    "crs": "EPSG:4326",
+    "dimensions": "256x256",
+    "channels": 2,
+    "s1_path": "C:\\projects\\Capstone project- Floodsense\\flood-project\\data\\processed\\S1\\USA_10234_S1Hand.tif",
+    "label_path": "C:\\projects\\Capstone project- Floodsense\\flood-project\\data\\processed\\LabelHand\\USA_10234_LabelHand.tif",
+    "syneo_path": "C:\\projects\\Capstone project- Floodsense\\flood-project\\data\\processed\\SynEO\\USA_10234_SynEO.npy",
+    "has_ground_truth": true,
+    "has_syneo": true
+  },
+  {
+    "sample_id": "Nigeria_8812",
+    "country": "Nigeria",
+    "chip_id": "8812",
+    "location_name": "Benue River Confluence, Lokoja, Nigeria",
+    "center_lat": 7.625,
+    "center_lon": 6.625,
+    "bounds": [
+      6.5,
+      7.5,
+      6.75,
+      7.75
+    ],
+    "crs": "EPSG:4326",
+    "dimensions": "256x256",
+    "channels": 2,
+    "s1_path": "C:\\projects\\Capstone project- Floodsense\\flood-project\\data\\processed\\S1\\Nigeria_8812_S1Hand.tif",
+    "label_path": "C:\\projects\\Capstone project- Floodsense\\flood-project\\data\\processed\\LabelHand\\Nigeria_8812_LabelHand.tif",
+    "syneo_path": "C:\\projects\\Capstone project- Floodsense\\flood-project\\data\\processed\\SynEO\\Nigeria_8812_SynEO.npy",
+    "has_ground_truth": true,
+    "has_syneo": true
+  }
+]
