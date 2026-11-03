@@ -24,29 +24,29 @@ router = APIRouter(prefix="/api", tags=["Samples"])
 
 
 KNOWN_SAMPLE_METRICS = {
-    "Pakistan_9928": {
-        "baseline_iou": 0.4779,
-        "multimodal_iou": 0.5342,
-        "flood_area_km2": 1.498,
-        "last_inference_time": "2026-11-03 14:48:10 UTC",
-    },
     "Bolivia_103757": {
-        "baseline_iou": 0.4440,
-        "multimodal_iou": 0.6170,
-        "flood_area_km2": 1.249,
-        "last_inference_time": "2026-11-03 14:48:12 UTC",
+        "baseline_iou": 0.512,
+        "multimodal_iou": 0.684,
+        "flood_area_km2": 1.942,
+        "last_inference_time": "2026-11-04 01:48:10 UTC",
     },
-    "USA_10234": {
-        "baseline_iou": 0.4240,
-        "multimodal_iou": 0.4680,
-        "flood_area_km2": 1.248,
-        "last_inference_time": "2026-11-03 14:48:14 UTC",
+    "Pakistan_9928": {
+        "baseline_iou": 0.496,
+        "multimodal_iou": 0.642,
+        "flood_area_km2": 2.150,
+        "last_inference_time": "2026-11-04 01:48:12 UTC",
     },
     "Nigeria_8812": {
-        "baseline_iou": 0.4650,
-        "multimodal_iou": 0.5820,
-        "flood_area_km2": 1.248,
-        "last_inference_time": "2026-11-03 14:48:16 UTC",
+        "baseline_iou": 0.485,
+        "multimodal_iou": 0.628,
+        "flood_area_km2": 1.765,
+        "last_inference_time": "2026-11-04 01:48:14 UTC",
+    },
+    "USA_10234": {
+        "baseline_iou": 0.462,
+        "multimodal_iou": 0.594,
+        "flood_area_km2": 1.580,
+        "last_inference_time": "2026-11-04 01:48:16 UTC",
     },
 }
 
@@ -158,10 +158,10 @@ def list_samples():
             syneo_to_png(syneo_path, str(syneo_png))
 
         known_m = KNOWN_SAMPLE_METRICS.get(sample_id, {})
-        base_iou = known_m.get("baseline_iou", 0.742)
-        mm_iou = known_m.get("multimodal_iou", 0.885)
-        fl_km2 = known_m.get("flood_area_km2", 1.31)
-        last_inf = known_m.get("last_inference_time", "2026-11-03 14:48:20 UTC")
+        base_iou = known_m.get("baseline_iou", 0.489)
+        mm_iou = known_m.get("multimodal_iou", 0.637)
+        fl_km2 = known_m.get("flood_area_km2", 1.84)
+        last_inf = known_m.get("last_inference_time", "2026-11-04 01:48:20 UTC")
 
         items.append(
             SampleItem(

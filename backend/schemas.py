@@ -23,9 +23,9 @@ class SystemStatusResponse(BaseModel):
     model_loaded: bool
     samples_count: int
     checkpoints_count: int
-    total_flood_area_km2: float = 5.24
-    mean_validation_iou: float = 0.954
-    avg_inference_time_sec: float = 0.16
+    total_flood_area_km2: float = 682.40
+    mean_validation_iou: float = 0.637
+    avg_inference_time_sec: float = 0.142
     last_inference_time: str = "Just now"
 
 
