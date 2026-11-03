@@ -26,6 +26,7 @@ from backend.utils import (
     syneo_to_png,
     prob_to_png,
     binary_mask_to_png,
+    colourised_mask_to_png,
 )
 from ml.config import cfg
 from ml.preprocessing import load_tif
@@ -106,6 +107,13 @@ def execute_baseline_inference(req: InferenceRequest):
     mask_png = out_dir / "predictions" / f"{job_id}_mask.png"
     prob_to_png(prob, str(prob_png))
     binary_mask_to_png(binary, str(mask_png))
+
+    # Save persistent colourised mask for the Map page (blue=safe, red=risky)
+    colormask_png = out_dir / "predictions" / f"{req.sample_id}_colormask.png"
+    colourised_mask_to_png(prob, binary, str(colormask_png))
+    # Also save raw arrays so the map router can regenerate without re-running inference
+    np.save(str(out_dir / "predictions" / f"{req.sample_id}_latest_prob.npy"), prob)
+    np.save(str(out_dir / "predictions" / f"{req.sample_id}_latest_mask.npy"), binary)
 
     # Check metrics if ground truth label exists
     metrics = None
@@ -233,6 +241,13 @@ def execute_multimodal_inference(req: InferenceRequest):
     mask_png = out_dir / "predictions" / f"{job_id}_mask.png"
     prob_to_png(prob, str(prob_png))
     binary_mask_to_png(binary, str(mask_png))
+
+    # Save persistent colourised mask for the Map page (blue=safe, red=risky)
+    colormask_png = out_dir / "predictions" / f"{req.sample_id}_colormask.png"
+    colourised_mask_to_png(prob, binary, str(colormask_png))
+    # Also save raw arrays so the map router can regenerate without re-running inference
+    np.save(str(out_dir / "predictions" / f"{req.sample_id}_latest_prob.npy"), prob)
+    np.save(str(out_dir / "predictions" / f"{req.sample_id}_latest_mask.npy"), binary)
 
     metrics = None
     lbl_path = _find_label_path_for_sample(req.sample_id)

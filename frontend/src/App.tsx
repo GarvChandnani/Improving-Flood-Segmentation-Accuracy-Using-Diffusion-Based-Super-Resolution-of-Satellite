@@ -49,7 +49,13 @@ export const App: React.FC = () => {
             setSelectedSampleId={setSelectedSampleId}
           />
         )}
-        {activeTab === 'map' && <MapView onSelectSample={handleSelectSample} />}
+        {activeTab === 'map' && (
+          <MapView
+            selectedSampleId={selectedSampleId}
+            setSelectedSampleId={setSelectedSampleId}
+            onSelectSample={handleSelectSample}
+          />
+        )}
 
         {/* Generic views for Data, Experiments, System keeping Stitch theme */}
         {activeTab === 'data' && (

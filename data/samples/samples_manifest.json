@@ -86,5 +86,28 @@
     "syneo_path": "C:\\projects\\Capstone project- Floodsense\\flood-project\\data\\processed\\SynEO\\Nigeria_8812_SynEO.npy",
     "has_ground_truth": true,
     "has_syneo": true
+  },
+  {
+    "sample_id": "UPLOAD_Jabalpur_7370579_S1Hand",
+    "country": "User Ingest",
+    "chip_id": "Jabalpur_7370579_S1Hand",
+    "location_name": "User Tile: Jabalpur_7370579_S1Hand.tif",
+    "center_lat": 38.105815700122804,
+    "center_lon": -0.7588967520241717,
+    "bounds": [
+      -0.7818936232976315,
+      38.08281882884935,
+      -0.735899880750712,
+      38.12881257139627
+    ],
+    "crs": "EPSG:4326",
+    "dimensions": "512x512",
+    "channels": 2,
+    "s1_path": "C:\\projects\\Capstone project- Floodsense\\flood-project\\data\\processed\\S1\\UPLOAD_Jabalpur_7370579_S1Hand_S1Hand.tif",
+    "s1_url": "/outputs/previews/UPLOAD_Jabalpur_7370579_S1Hand_sar.png",
+    "label_path": null,
+    "label_url": null,
+    "syneo_path": null,
+    "syneo_url": null
   }
 ]

@@ -10,12 +10,20 @@ export interface SystemStatus {
   cuda_available: boolean;
   vram_used_gb: number;
   vram_total_gb: number;
+  ram_used_gb?: number;
+  ram_total_gb?: number;
+  ram_usage_percent?: number;
+  cpu_utilization_percent?: number;
   api_latency_ms: number;
   active_model: string;
   active_checkpoint: string;
   model_loaded: boolean;
   samples_count: number;
   checkpoints_count: number;
+  total_flood_area_km2?: number;
+  mean_validation_iou?: number;
+  avg_inference_time_sec?: number;
+  last_inference_time?: string;
 }
 
 export interface SampleItem {
@@ -34,6 +42,10 @@ export interface SampleItem {
   syneo_url?: string;
   has_ground_truth: boolean;
   has_syneo: boolean;
+  baseline_iou?: number;
+  multimodal_iou?: number;
+  flood_area_km2?: number;
+  last_inference_time?: string;
 }
 
 export interface ModelInfo {
@@ -95,6 +107,17 @@ export interface RegionalMetrics {
   f1: number;
 }
 
+export interface PerSampleBenchmark {
+  sample_id: string;
+  region: string;
+  baseline_iou: number;
+  multimodal_iou: number;
+  iou_difference: number;
+  precision: number;
+  recall: number;
+  f1: number;
+}
+
 export interface EvaluationResponse {
   run_id: string;
   sample_id: string;
@@ -109,6 +132,11 @@ export interface EvaluationResponse {
   visual_multimodal_pred_url: string;
   visual_error_diff_url: string;
   regional_breakdown: RegionalMetrics[];
+  sample_benchmarks?: PerSampleBenchmark[];
+  baseline_distribution?: number[];
+  multimodal_distribution?: number[];
+  baseline_mean_iou?: number;
+  multimodal_mean_iou?: number;
 }
 
 export interface MapOverlayInfo {

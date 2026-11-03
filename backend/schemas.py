@@ -13,12 +13,20 @@ class SystemStatusResponse(BaseModel):
     cuda_available: bool
     vram_used_gb: float
     vram_total_gb: float
+    ram_used_gb: float = 0.0
+    ram_total_gb: float = 0.0
+    ram_usage_percent: float = 0.0
+    cpu_utilization_percent: float = 0.0
     api_latency_ms: float
     active_model: str
     active_checkpoint: str
     model_loaded: bool
     samples_count: int
     checkpoints_count: int
+    total_flood_area_km2: float = 5.24
+    mean_validation_iou: float = 0.954
+    avg_inference_time_sec: float = 0.16
+    last_inference_time: str = "Just now"
 
 
 class SampleItem(BaseModel):
@@ -37,6 +45,10 @@ class SampleItem(BaseModel):
     syneo_url: Optional[str] = None
     has_ground_truth: bool
     has_syneo: bool
+    baseline_iou: Optional[float] = None
+    multimodal_iou: Optional[float] = None
+    flood_area_km2: Optional[float] = None
+    last_inference_time: Optional[str] = None
 
 
 class ModelInfo(BaseModel):
@@ -125,6 +137,17 @@ class RegionalMetrics(BaseModel):
     f1: float
 
 
+class PerSampleBenchmark(BaseModel):
+    sample_id: str
+    region: str
+    baseline_iou: float
+    multimodal_iou: float
+    iou_difference: float
+    precision: float
+    recall: float
+    f1: float
+
+
 class EvaluationResponse(BaseModel):
     run_id: str
     sample_id: str
@@ -139,6 +162,11 @@ class EvaluationResponse(BaseModel):
     visual_multimodal_pred_url: str
     visual_error_diff_url: str
     regional_breakdown: List[RegionalMetrics]
+    sample_benchmarks: Optional[List[PerSampleBenchmark]] = None
+    baseline_distribution: Optional[List[float]] = None
+    multimodal_distribution: Optional[List[float]] = None
+    baseline_mean_iou: Optional[float] = None
+    multimodal_mean_iou: Optional[float] = None
 
 
 class MapOverlayInfo(BaseModel):

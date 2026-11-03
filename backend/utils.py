@@ -105,6 +105,35 @@ def binary_mask_to_png(binary_mask: np.ndarray, out_png_path: str) -> str:
     return out_png_path
 
 
+def colourised_mask_to_png(prob_map: np.ndarray, binary_mask: np.ndarray, out_png_path: str) -> str:
+    """
+    Generate a colour-coded RGBA mask for the Map page.
+    - Blue  (#3B82F6, 200 alpha) = safe water  (binary=1 AND prob >= 0.6)
+    - Red   (#EF4444, 200 alpha) = high risk    (binary=1 AND prob <  0.6, i.e. uncertain/low confidence)
+    - Transparent = no flood predicted
+    This PNG is overlaid directly on the SAR image in the map UI.
+    """
+    h, w = binary_mask.shape
+    rgba = np.zeros((h, w, 4), dtype=np.uint8)  # fully transparent background
+
+    flood = binary_mask > 0
+    high_conf = prob_map >= 0.6   # confident prediction  → blue (safe water identified)
+    low_conf  = prob_map <  0.6   # uncertain prediction   → red  (risky / uncertain)
+
+    # Safe water — blue
+    safe_mask = flood & high_conf
+    rgba[safe_mask] = [59, 130, 246, 200]   # #3B82F6 with alpha 200
+
+    # Risky / uncertain — red
+    risky_mask = flood & low_conf
+    rgba[risky_mask] = [239, 68, 68, 200]   # #EF4444 with alpha 200
+
+    img = Image.fromarray(rgba, mode="RGBA")
+    Path(out_png_path).parent.mkdir(parents=True, exist_ok=True)
+    img.save(out_png_path)
+    return out_png_path
+
+
 def difference_map_to_png(baseline_pred: np.ndarray, multimodal_pred: np.ndarray, gt: np.ndarray, out_png_path: str) -> str:
     """
     Generate error difference map for UI comparison screen.
