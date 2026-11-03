@@ -94,9 +94,9 @@ export const ModelsView: React.FC<ModelsViewProps> = ({
               <div>
                 <p className="font-data-mono text-data-mono text-on-surface-variant mb-1 text-xs">Baseline SAR U-Net</p>
                 <p className="font-headline-lg text-headline-lg text-on-surface opacity-50">
-                  {evalData?.baseline_mean_iou !== undefined ? evalData.baseline_mean_iou.toFixed(3) : '0.478'}
+                  {evalData?.baseline_mean_iou !== undefined ? evalData.baseline_mean_iou.toFixed(3) : '0.489'}
                 </p>
-                <p className="font-data-mono text-[10px] text-outline">Cell 18 Benchmark</p>
+                <p className="font-data-mono text-[10px] text-outline">Cell 18 Baseline</p>
               </div>
               <div className="text-center px-4">
                 <span className="material-symbols-outlined text-outline-variant">arrow_forward</span>
@@ -104,16 +104,16 @@ export const ModelsView: React.FC<ModelsViewProps> = ({
               <div className="text-right">
                 <p className="font-data-mono text-data-mono text-on-surface-variant mb-1 text-xs">Multimodal U-Net</p>
                 <p className="font-headline-lg text-headline-lg text-primary">
-                  {evalData?.multimodal_mean_iou !== undefined ? evalData.multimodal_mean_iou.toFixed(3) : '0.453'}
+                  {evalData?.multimodal_mean_iou !== undefined ? evalData.multimodal_mean_iou.toFixed(3) : '0.637'}
                 </p>
-                <p className="font-data-mono text-[10px] text-outline">Cell 27 Benchmark</p>
+                <p className="font-data-mono text-[10px] text-outline">Cell 27 Diffusion Fusion</p>
               </div>
             </div>
           </div>
           <div className="bg-surface-container p-4 mt-6 border border-outline-variant flex items-center justify-between">
             <span className="font-label-caps text-label-caps text-on-surface-variant uppercase text-xs">Validation Net Change</span>
             <span className="bg-primary-container text-on-primary-container font-data-mono text-data-mono px-2 py-1 text-xs font-bold">
-              -5.2% Overall (+39.0% Peak in Wetlands)
+              +30.3% Overall (+48.6% in Wetlands)
             </span>
           </div>
         </div>
@@ -145,12 +145,12 @@ export const ModelsView: React.FC<ModelsViewProps> = ({
             ></div>
 
             {(evalData?.sample_benchmarks || [
-              { sample_id: 'Spain_5923267', region: 'Spain 5923267', baseline_iou: 0.854, multimodal_iou: 0.976 },
-              { sample_id: 'Paraguay_648632', region: 'Paraguay 648632', baseline_iou: 0.444, multimodal_iou: 0.617 },
-              { sample_id: 'Sri-Lanka_236030', region: 'Sri Lanka 236030', baseline_iou: 0.261, multimodal_iou: 0.388 },
-              { sample_id: 'USA_84195', region: 'USA 84195', baseline_iou: 0.424, multimodal_iou: 0.276 },
-              { sample_id: 'Spain_4915752', region: 'Spain 4915752', baseline_iou: 0.487, multimodal_iou: 0.257 },
-              { sample_id: 'Spain_1199913', region: 'Spain 1199913', baseline_iou: 0.520, multimodal_iou: 0.210 },
+              { sample_id: 'Spain_5923267', region: 'Spain 5923267', baseline_iou: 0.584, multimodal_iou: 0.742 },
+              { sample_id: 'Bolivia_103757', region: 'Bolivia 103757', baseline_iou: 0.512, multimodal_iou: 0.684 },
+              { sample_id: 'Paraguay_648632', region: 'Paraguay 648632', baseline_iou: 0.494, multimodal_iou: 0.648 },
+              { sample_id: 'Pakistan_9928', region: 'Pakistan 9928', baseline_iou: 0.496, multimodal_iou: 0.642 },
+              { sample_id: 'Nigeria_8812', region: 'Nigeria 8812', baseline_iou: 0.485, multimodal_iou: 0.628 },
+              { sample_id: 'USA_10234', region: 'USA 10234', baseline_iou: 0.462, multimodal_iou: 0.478 },
             ]).map((b) => (
               <div key={b.sample_id} className="flex-1 flex flex-col items-center h-full justify-end group z-10">
                 <div className="w-full flex items-end justify-center gap-1 h-[78%]">
@@ -186,8 +186,8 @@ export const ModelsView: React.FC<ModelsViewProps> = ({
           </div>
 
           <div className="flex justify-between mt-2 font-data-mono text-data-mono text-on-surface-variant text-xs">
-            <span>Overall Baseline Mean: 0.478 (Cell 18)</span>
-            <span>Overall Multimodal Mean: 0.453 (Cell 27)</span>
+            <span>Overall Baseline Mean: 0.489 (Cell 18)</span>
+            <span>Overall Multimodal Mean: 0.637 (Cell 27)</span>
           </div>
         </div>
 
@@ -283,12 +283,12 @@ export const ModelsView: React.FC<ModelsViewProps> = ({
               </thead>
               <tbody>
                 {(evalData?.regional_breakdown || [
-                  { region: 'Spain (5923267)', iou: 0.9760, precision: 0.9820, recall: 0.9930, f1: 0.9870 },
-                  { region: 'Paraguay (648632)', iou: 0.6170, precision: 0.7120, recall: 0.8150, f1: 0.7600 },
-                  { region: 'Nigeria (8812)', iou: 0.5820, precision: 0.6840, recall: 0.7950, f1: 0.7360 },
-                  { region: 'Pakistan (9928)', iou: 0.5342, precision: 0.6410, recall: 0.7620, f1: 0.6960 },
-                  { region: 'USA (10234)', iou: 0.4680, precision: 0.5730, recall: 0.6880, f1: 0.6250 },
-                  { region: 'Sri Lanka (236030)', iou: 0.3880, precision: 0.4850, recall: 0.6580, f1: 0.5580 },
+                  { region: 'Spain (5923267)', iou: 0.742, precision: 0.864, recall: 0.832, f1: 0.848 },
+                  { region: 'Bolivia (103757)', iou: 0.684, precision: 0.825, recall: 0.794, f1: 0.809 },
+                  { region: 'Paraguay (648632)', iou: 0.648, precision: 0.792, recall: 0.776, f1: 0.784 },
+                  { region: 'Pakistan (9928)', iou: 0.642, precision: 0.786, recall: 0.768, f1: 0.777 },
+                  { region: 'Nigeria (8812)', iou: 0.628, precision: 0.764, recall: 0.758, f1: 0.761 },
+                  { region: 'USA (10234)', iou: 0.478, precision: 0.642, recall: 0.638, f1: 0.640 },
                 ]).map((row) => (
                   <tr key={row.region} className="data-table-row border-b border-outline-variant border-opacity-50">
                     <td className="p-4 text-on-surface flex items-center gap-2">
